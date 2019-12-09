@@ -11,7 +11,7 @@
     "prod": "webpack --config webpack/build/webpack.prod.conf.js"
   },
   "dependencies": {
-    "react": "^16.10.2"
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
