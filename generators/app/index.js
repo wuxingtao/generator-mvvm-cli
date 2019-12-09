@@ -1,38 +1,79 @@
-"use strict";
-const Generator = require("yeoman-generator");
-const chalk = require("chalk");
-const yosay = require("yosay");
+'use strict';
+const Generator = require('yeoman-generator');
+const chalk = require('chalk');
+const yosay = require('yosay');
+const { common_prompts, react_prompts, vue_prompts } = require('./prompts.js');
 
 module.exports = class extends Generator {
-  prompting() {
+  async prompting () {
     // Have Yeoman greet the user.
     this.log(
-      yosay(`Welcome to the best ${chalk.red("generator-mvvm-cli")} generator!`)
+      yosay(`Welcome to the awesome ${chalk.red('generator-rt-webpack')} generator!`)
     );
 
-    const prompts = [
-      {
-        type: "confirm",
-        name: "someAnswer",
-        message: "Would you like to enable this option?",
-        default: true
-      }
-    ];
+    const prompts = common_prompts.bind(this)();
 
-    return this.prompt(prompts).then(props => {
+    const results = await this.prompt(prompts);
+
+    const mvvm_prompts = results.mvvmFrame.key === 'react' ? react_prompts : vue_prompts;
+    return this.prompt(mvvm_prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
     });
+
+
   }
 
-  writing() {
+  writing () {
     this.fs.copy(
-      this.templatePath("dummyfile.txt"),
-      this.destinationPath("dummyfile.txt")
+      // this.templatePath('dummyfile.txt'),
+      // this.destinationPath('dummyfile.txt')
+      this.templatePath('all/'),
+      this.destinationPath('./')
     );
+    this.fs.copy(
+      this.templatePath('all/.babelrc'),
+      this.destinationPath('.babelrc')
+    );
+    this.fs.copy(
+      this.templatePath('all/.gitignore'),
+      this.destinationPath('.gitignore')
+    );
+    this.fs.copyTpl(
+      this.templatePath('package.json'),//第一个参数：from
+      this.destinationPath('package.json'),//第二个参数：to
+      {
+        props: this.props
+      }
+    );
+
+    /*// 动态写入dep
+    const pkgJson = {
+
+      dependencies: {
+
+        vue: '^2.0.0'
+
+      }
+
+    };
+    this.fs.extendJSON(this.destinationPath('projects/vue/package.json'), pkgJson);*/
+
   }
 
-  install() {
-    this.installDependencies();
+//安装依赖
+  install () {
+    if (this.props.isInstallDev) {
+      this.installDependencies();
+    }
+  }
+
+  // 最后执行，可清楚临时文件等
+  end () {
+    if (this.props.isInstallDev) {
+      this.log(
+        chalk.green('项目构建成功, 请 `npm install` 安装依赖, 然后执行 `npm start` 运行')
+      );
+    }
   }
 };
