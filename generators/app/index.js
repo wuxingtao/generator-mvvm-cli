@@ -10,42 +10,45 @@ module.exports = class extends Generator {
     this.log(
       yosay(`Welcome to the awesome ${chalk.red('generator-rt-webpack')} generator!`)
     );
-
+    /* 使用common prompts */
     const prompts = common_prompts.bind(this)();
-
     const results = await this.prompt(prompts);
-
+    /* 使用vue or react prompts条件 */
     const mvvm_prompts = results.mvvmFrame.key === 'react' ? react_prompts : vue_prompts;
     return this.prompt(mvvm_prompts).then(props => {
       // To access props later use this.props.someAnswer;
-      this.props = props;
+      this.props = Object.assign({}, results, props);
     });
-
-
   }
 
-  writing () {
+  writing_template (template) {
+    console.log('writing now !!!');
+    if (!template) {
+      return false;
+    }
     this.fs.copy(
-      // this.templatePath('dummyfile.txt'),
-      // this.destinationPath('dummyfile.txt')
-      this.templatePath('all/'),
+      this.templatePath(`${template}/`),
       this.destinationPath('./')
     );
     this.fs.copy(
-      this.templatePath('all/.babelrc'),
+      this.templatePath(`${template}/.babelrc`),
       this.destinationPath('.babelrc')
     );
     this.fs.copy(
-      this.templatePath('all/.gitignore'),
+      this.templatePath(`${template}/.gitignore`),
       this.destinationPath('.gitignore')
     );
     this.fs.copyTpl(
-      this.templatePath('package.json'),//第一个参数：from
-      this.destinationPath('package.json'),//第二个参数：to
+      this.templatePath(`common/${template}_package.json`), //第一个参数：from
+      this.destinationPath('package.json'), //第二个参数：to
       {
         props: this.props
       }
     );
+  }
+
+  writing () {
+    this.writing_template(this.props.mvvmFrame.key);
 
     /*// 动态写入dep
     const pkgJson = {

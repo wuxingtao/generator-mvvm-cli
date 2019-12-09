@@ -1,0 +1,54 @@
+{
+  "name": "<%= props.appName %>",
+  "version": "1.0.0",
+  "description": "<%= props.description %>",
+  "main": "index.js",
+  "author": "<%= props.author %>",
+  "license": "MIT",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development && npm run dev",
+    "dev": "webpack-dev-server --config webpack/build/webpack.dev.conf.js",
+    "prod": "webpack --config webpack/build/webpack.prod.conf.js"
+  },
+  "dependencies": {
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+<% if (props.pluginSelect.includes('redux')) { -%>
+    "react-redux": "^7.1.3",
+    "redux": "^4.0.4",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+<% } -%>
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.6.3",
+    "@babel/runtime": "^7.6.2",
+    "babel-loader": "^8.0.6",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+<% if (props.cssPreprocessor.key === 'node-sass') { -%>
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0",
+<% } if (props.cssPreprocessor.key === 'less') { -%>
+    "less-loader": "^4.1.0",
+<% } -%>
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^1.0.0",
+    "url-loader": "^2.2.0",
+<% if (props.pluginSelect.includes('redux')) { -%>
+    "redux-devtools-extension": "^2.13.8",
+<% } -%>
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2",
+    "webpack-merge": "^4.2.2"
+  }
+}
