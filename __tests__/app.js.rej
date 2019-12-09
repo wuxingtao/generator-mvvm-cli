@@ -1,0 +1,21 @@
+diff a/__tests__/app.js b/__tests__/app.js	(rejected hunks)
+@@ -1,4 +1,4 @@
+-'use strict';
+-const path = require('path');
+-const assert = require('yeoman-assert');
+-const helpers = require('yeoman-test');
++"use strict";
++const path = require("path");
++const assert = require("yeoman-assert");
++const helpers = require("yeoman-test");
+@@ -6 +6 @@ const helpers = require('yeoman-test');
+-describe('generator-mvvm-cli:app', () => {
++describe("generator-mvvm-cli:app", () => {
+@@ -9 +9 @@ describe('generator-mvvm-cli:app', () => {
+-      .run(path.join(__dirname, '../generators/app'))
++      .run(path.join(__dirname, "../generators/app"))
+@@ -13,2 +13,2 @@ describe('generator-mvvm-cli:app', () => {
+-  it('creates files', () => {
+-    assert.file(['dummyfile.txt']);
++  it("creates files", () => {
++    assert.file(["dummyfile.txt"]);
