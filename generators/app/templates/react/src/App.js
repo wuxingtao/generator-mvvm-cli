@@ -1,9 +1,5 @@
-import React from 'react';
+import React from "react";
 import './App.css';
-// import { BrowserRouter,HashRouter } from 'react-router-dom'
-import { HashRouter } from 'react-router-dom';
-
-// import Routers from './routers'
 
 function App () {
     return (

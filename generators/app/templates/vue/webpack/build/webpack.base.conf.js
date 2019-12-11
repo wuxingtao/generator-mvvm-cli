@@ -6,6 +6,7 @@
 'use strict';
 const path = require('path');
 // plugins
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // 判断运行环境 [production|development]
 const isProd = process.env.NODE_ENV === 'production';
@@ -25,6 +26,7 @@ module.exports = {
     },
     resolve: configResolve.getResolve(),
     plugins: [
+        new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
             chunks: ['index'],
             title: 'title',
@@ -35,17 +37,16 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
+                test: /\.vue$/,
+                loader: 'vue-loader'
             },
             {
-                test: /\.scss$/,
-                loader: ['css-loader','sass-loader']
+                test: /\.(sass|scss)$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
                 test: /\.less$/,
-                loader: ['css-loader', 'less-loader']
+                loader: ['style-loader', 'css-loader', 'less-loader']
             },
             {
                 test: /\.css$/,
