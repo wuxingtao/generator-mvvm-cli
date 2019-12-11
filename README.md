@@ -1,4 +1,6 @@
-# generator-mvvm-cli [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-mvvm-cli 
+[![NPM version][npm-image]][npm-url] 
+[![license status][license-image]][npm-url]
 
 > Yeoman generator cli for react + Webpack.
 
@@ -75,8 +77,9 @@ MIT © [xingtao]()
 
 
 [npm-image]: https://badge.fury.io/js/generator-mvvm-cli.svg
-[npm-url]: https://npmjs.org/package/generator-mvvm-cli
+[npm-url]: https://www.npmjs.com/package/generator-mvvm-cli
 [travis-image]: https://travis-ci.com//generator-mvvm-cli.svg?branch=master
 [travis-url]: https://travis-ci.com//generator-mvvm-cli
 [daviddm-image]: https://david-dm.org//generator-mvvm-cli.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org//generator-mvvm-cli
+[license-image]: https://img.shields.io/github/license/wuxingtao/generator-mvvm-cli
