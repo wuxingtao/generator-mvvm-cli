@@ -16,7 +16,7 @@ module.exports = class extends Generator {
         const prompts = common_prompts.bind(this)();
         const results = await this.prompt(prompts);
         /* 使用vue or react prompts条件 */
-        const mvvm_prompts = results.mvvmFrame.key === 'react' ? react_prompts : vue_prompts;
+        const mvvm_prompts = results && results.mvvmFrame && results.mvvmFrame.key === 'react' ? react_prompts : vue_prompts;
         return this.prompt(mvvm_prompts).then(props => {
             // To access props later use this.props.someAnswer;
             this.props = Object.assign({}, results, props);
@@ -85,8 +85,9 @@ module.exports = class extends Generator {
     }
 
     writing () {
-        this.writing_flow(this.props.mvvmFrame.key);
-
+        if(this.props.mvvmFrame){
+            this.writing_flow(this.props.mvvmFrame.key);
+        }
         /*// 动态写入dep
         const pkgJson = {
 

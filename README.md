@@ -1,6 +1,8 @@
 # generator-mvvm-cli 
 [![NPM version][npm-image]][npm-url] 
 [![license status][license-image]][npm-url]
+[![Coverage Status](https://coveralls.io/repos/github/wuxingtao/generator-mvvm-cli/badge.svg?branch=master)](https://coveralls.io/github/wuxingtao/generator-mvvm-cli?branch=master)
+[![Build Status][travis-image]][travis-url]
 
 > Yeoman generator cli for react + Webpack.
 
