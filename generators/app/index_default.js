@@ -7,7 +7,7 @@ module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
     this.log(
-      yosay(`Welcome to the awesome ${chalk.red('generator-rt-webpack')} generator!`)
+      yosay(`Welcome to the awesome ${chalk.red('generator-mvvm-cli')} generator!`)
     );
 
     const prompts = [

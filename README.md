@@ -8,21 +8,6 @@
 > * web best pratices.
 > * guidelines powered by Google.
 
-## feature lists
-
-### React-template
-* React 16.10.2
-* webpack 4 
-  * webpack-dev-server
-* babel (default: @babel 7)
-* redux
-  * react-redux
-  * redux-logger
-  * redux-thunk
-  * redux-devtools-extension
-
-### Vue-template
-
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-mvvm-cli using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
@@ -37,6 +22,21 @@ Then generate your new project:
 ```bash
 yo rt-webpack
 ```
+
+## feature lists
+
+### React-template
+* React 16.10.2
+* webpack 4 
+  * webpack-dev-server
+* babel (default: @babel 7)
+* redux
+  * react-redux
+  * redux-logger
+  * redux-thunk
+  * redux-devtools-extension
+
+### Vue-template
 
 ## template file list
 ```
