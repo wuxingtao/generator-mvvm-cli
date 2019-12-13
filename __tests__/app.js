@@ -6,7 +6,7 @@ const helpers = require("yeoman-test");
 const template_path = path.join(__dirname, "../generators/app/templates");
 const template_select = "react";
 
-function path_join(filePath) {
+function path_join (filePath) {
     return path.join(template_path, filePath);
 }
 
@@ -20,13 +20,18 @@ describe("generator-mvvm-cli:app", () => {
                 cssPreprocessor: { key: "node-sass", extension: "scss" },
                 pluginSelect: ["react-router", "redux"],
                 isInstallDev: false
+            })
+            .withLocalConfig({ lang: 'en' })
+            .then(function(){
+
             });
     });
 
     it("creates files", () => {
         assert.file([
             path_join(`${template_select}/src`),
-            path_join(`${template_select}/webpack`)
+            path_join(`${template_select}/webpack`),
+            path_join(`${template_select}/src/redux`)
         ]);
     });
 });

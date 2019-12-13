@@ -24,7 +24,7 @@ npm install -g generator-mvvm-cli
 Then generate your new project:
 
 ```bash
-yo rt-webpack
+yo mvvm-cli
 ```
 
 ## feature lists
