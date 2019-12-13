@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/wuxingtao/generator-mvvm-cli/badge.svg?branch=master)](https://coveralls.io/github/wuxingtao/generator-mvvm-cli?branch=master)
 [![Build Status][travis-image]][travis-url]
 
-> Yeoman generator cli for react + Webpack.
+> Yeoman generator cli for React/Vue + Webpack.
 
 > Lets you quickly set up a project with:
 > * simple template with React/Vue without create-react-app / vue-cli
@@ -41,9 +41,16 @@ yo mvvm-cli
   * redux-devtools-extension
 
 ### Vue-template
+* Vue
+* webpack 4 
+  * webpack-dev-server
+* babel (default: @babel 7)
+* Vuex
+
 
 ## template file list
 ```
+// react
 │  .babelrc
 │  .gitignore
 │  package-lock.json
@@ -71,7 +78,36 @@ yo mvvm-cli
     └─dist
             index.html
 ```
-
+```
+// vue
+|-- README.md
+|-- _package.json
+|-- info.txt
+|-- package.json
+|-- src
+|   |-- App.css
+|   |-- App.vue
+|   |-- index.html
+|   |-- index.js
+|   |-- router.js
+|   |-- views
+|   |   `-- Home.vue
+|   `-- vuex
+|       |-- modules
+|       |   `-- global.js
+|       `-- store.js
+|-- webpack
+|   |-- build
+|   |   |-- webpack.base.conf.js
+|   |   |-- webpack.dev.conf.js
+|   |   `-- webpack.prod.conf.js
+|   |-- config
+|   |   |-- index.js
+|   |   `-- resolve.js
+|   `-- dist
+|       `-- index.html
+`-- yarn.lock
+```
 
 ## License
 
