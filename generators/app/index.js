@@ -32,10 +32,11 @@ module.exports = class extends Generator {
 
     /**
      * 写入模板文件 vue/react
-     * @param template
+     * @param template > template name
      * @returns {boolean}
+     * @param root > project name
      */
-    writing_flow(template) {
+    writing_flow(root, template) {
         console.log("writing now !!!");
         if (!template) {
             return false;
@@ -43,21 +44,21 @@ module.exports = class extends Generator {
 
         this.fs.copy(
             this.templatePath(`${template}/`),
-            this.destinationPath("./"),
+            this.destinationPath(`./${root}`),
             template_config.options.bind(this)(template)
         );
-        this.writing_plugin(template);
+        this.writing_plugin(root, template);
         this.fs.copy(
             this.templatePath(`${template}/.babelrc`),
-            this.destinationPath(".babelrc")
+            this.destinationPath(`${root}/.babelrc`)
         );
         this.fs.copy(
-            this.templatePath(`${template}/.gitignore`),
-            this.destinationPath(".gitignore")
+            this.templatePath(`${template}/_.gitignore`),
+            this.destinationPath(`${root}/.gitignore`)
         );
         this.fs.copyTpl(
             this.templatePath(`${template}/_package.json`), // 第一个参数：from
-            this.destinationPath("package.json"), // 第二个参数：to
+            this.destinationPath(`${root}/package.json`), // 第二个参数：to
             {
                 props: this.props
             }
@@ -66,9 +67,11 @@ module.exports = class extends Generator {
 
     /**
      * 写入template 插件
-     * @param template
+     * @param template > template name
+     * @param root > project name
+     * @return {boolean}
      */
-    writing_plugin(template) {
+    writing_plugin(root, template) {
         if (!template) {
             return false;
         }
@@ -77,14 +80,14 @@ module.exports = class extends Generator {
             if (this.props.pluginSelect.includes("redux")) {
                 this.fs.copy(
                     this.templatePath(`${template}/src/redux`),
-                    this.destinationPath("./src/redux")
+                    this.destinationPath(`${root}/src/redux`)
                 );
             }
         } else if (this.props.mvvmFrame.key === "vue") {
             if (this.props.pluginSelect.includes("vuex")) {
                 this.fs.copy(
                     this.templatePath(`${template}/src/vuex/`),
-                    this.destinationPath("./src/vuex/")
+                    this.destinationPath(`${root}/src/vuex/`)
                 );
             }
         }
@@ -94,17 +97,13 @@ module.exports = class extends Generator {
 
     writing() {
         if (this.props.mvvmFrame) {
-            this.writing_flow(this.props.mvvmFrame.key);
+            this.writing_flow(this.props.appName, this.props.mvvmFrame.key);
         }
         /* // 动态写入dep
         const pkgJson = {
-
           dependencies: {
-
             vue: '^2.0.0'
-
           }
-
         };
         this.fs.extendJSON(this.destinationPath('projects/vue/package.json'), pkgJson); */
     }

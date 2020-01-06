@@ -10,7 +10,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-module.export = merge(base, {
+module.exports = merge(base, {
     plugins:[
         // new CleanWebpackPlugin(),
         // new ManifestPlugin({

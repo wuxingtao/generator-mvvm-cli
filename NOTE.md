@@ -7,6 +7,9 @@
 使用Yeomon 构造react+webpack cli工具
 
 ## 功能日志
+* 2019-01-06 
+    * 修复写入路径，现项目默认生成在appName 文件夹下;
+    * 修复文件copy报错，npm push .gitignore文件被忽略;
 * 2019-12-10prompts 使用区分common_prompts,react_prompts,vue_prompts;
 * 2019-12-11 增加配置忽略文件 _*.* 默认为忽略文件，如_package.json
 * 模板文件tpl 默认使用copyTpl遍历替换;
