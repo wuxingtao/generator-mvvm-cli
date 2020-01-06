@@ -11,7 +11,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(base, {
-    plugins:[
+    plugins: [
         // new CleanWebpackPlugin(),
         // new ManifestPlugin({
         //     basePath: '',
