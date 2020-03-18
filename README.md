@@ -8,6 +8,7 @@
 
 > Lets you quickly set up a project with:
 > * simple template with React/Vue without create-react-app / vue-cli
+> * create dir and installDependencies auto/Manual;
 > * your favorite technologies
 > * web best pratices.
 > * guidelines powered by Google.

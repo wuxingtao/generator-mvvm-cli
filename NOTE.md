@@ -13,6 +13,7 @@
 * 2019-12-10prompts 使用区分common_prompts,react_prompts,vue_prompts;
 * 2019-12-11 增加配置忽略文件 _*.* 默认为忽略文件，如_package.json
 * 模板文件tpl 默认使用copyTpl遍历替换;
+* 2020-03-18 按照依赖installDependencies,使用prompt配置目录，自动安装 (process.chdir(path.join(process.cwd(), this.props.appName));)
 
 
 ### mem-fs-editor 配置忽略文件
@@ -24,6 +25,16 @@
   );
 ```
 
+
+## 本地开发 关联npm link
+```js
+// 项目内 /generator-mvvm-cli
+npm link
+// 全局调用
+```
+
+## todo lists
+* 更新yeoman-generator版本
 
 ## 参考
 ### yo 提供mem-fs-editor实例接口，包含一系列fs工具：

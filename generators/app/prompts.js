@@ -1,4 +1,4 @@
-/* prompts for generator app*/
+/* prompts list for generator app*/
 const common_prompts = function () {
     return [
         {
