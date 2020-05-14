@@ -1,9 +1,9 @@
 {
-  "generator-node": {
-    "promptValues": {
-      "authorName": "wuxingtao",
-      "authorEmail": "540850871@qq.com",
-      "authorUrl": "https://www.wuxingtao.club/"
+    "generator-node": {
+        "promptValues": {
+            "authorName": "wuxingtao",
+            "authorEmail": "540850871@qq.com",
+            "authorUrl": "https://www.wuxingtao.club/"
+        }
     }
-  }
 }

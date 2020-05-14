@@ -1,23 +1,23 @@
-'use strict';
-const Generator = require('yeoman-generator');
-const chalk = require('chalk');
-const yosay = require('yosay');
+"use strict";
+const Generator = require("yeoman-generator");
+const chalk = require("chalk");
+const yosay = require("yosay");
 /* Prompts select lists */
-const { common_prompts, react_prompts, vue_prompts } = require('./prompts.js');
-const template_config = require('./config');
+const { common_prompts, react_prompts, vue_prompts } = require("./prompts.js");
+const template_config = require("./config");
 
-/* path
-* use to change process dir
-* */
-const path = require('path');
+/* Path
+ * use to change process dir
+ * */
+const path = require("path");
 
 module.exports = class extends Generator {
-    async prompting () {
+    async prompting() {
         // Have Yeoman greet the user.
         this.log(
             yosay(
                 `Welcome to the awesome ${chalk.red(
-                    'generator-mvvm-cli'
+                    "generator-mvvm-cli"
                 )} generator!`
             )
         );
@@ -26,7 +26,7 @@ module.exports = class extends Generator {
         const results = await this.prompt(prompts);
         /* 使用vue or react prompts条件 */
         const mvvm_prompts =
-            results && results.mvvmFrame && results.mvvmFrame.key === 'react'
+            results && results.mvvmFrame && results.mvvmFrame.key === "react"
                 ? react_prompts
                 : vue_prompts;
         return this.prompt(mvvm_prompts).then(props => {
@@ -41,8 +41,8 @@ module.exports = class extends Generator {
      * @returns {boolean}
      * @param root > project name
      */
-    writing_flow (root, template) {
-        console.log('writing now !!!');
+    writing_flow(root, template) {
+        console.log("writing now !!!");
         if (!template) {
             return false;
         }
@@ -76,20 +76,20 @@ module.exports = class extends Generator {
      * @param root > project name
      * @return {boolean}
      */
-    writing_plugin (root, template) {
+    writing_plugin(root, template) {
         if (!template) {
             return false;
         }
 
-        if (this.props.mvvmFrame.key === 'react') {
-            if (this.props.pluginSelect.includes('redux')) {
+        if (this.props.mvvmFrame.key === "react") {
+            if (this.props.pluginSelect.includes("redux")) {
                 this.fs.copy(
                     this.templatePath(`${template}/src/redux`),
                     this.destinationPath(`${root}/src/redux`)
                 );
             }
-        } else if (this.props.mvvmFrame.key === 'vue') {
-            if (this.props.pluginSelect.includes('vuex')) {
+        } else if (this.props.mvvmFrame.key === "vue") {
+            if (this.props.pluginSelect.includes("vuex")) {
                 this.fs.copy(
                     this.templatePath(`${template}/src/vuex/`),
                     this.destinationPath(`${root}/src/vuex/`)
@@ -98,10 +98,9 @@ module.exports = class extends Generator {
         }
     }
 
-    writing_tpl () {
-    }
+    writing_tpl() {}
 
-    writing () {
+    writing() {
         if (this.props.mvvmFrame) {
             this.writing_flow(this.props.appName, this.props.mvvmFrame.key);
         }
@@ -115,21 +114,21 @@ module.exports = class extends Generator {
     }
 
     // 安装依赖
-    install () {
+    install() {
         if (this.props.isInstallDev) {
-            // process update dir use this.props.appName
+            // Process update dir use this.props.appName
             process.chdir(path.join(process.cwd(), this.props.appName));
-            // install Dep with Generator api
+            // Install Dep with Generator api
             this.installDependencies({ bower: false, cwd: this.props.appName });
         }
     }
 
     // 最后执行，可清楚临时文件等
-    end () {
+    end() {
         if (this.props.isInstallDev) {
             this.log(
                 chalk.green(
-                    '项目构建成功, 请 `npm install` 安装依赖, 然后执行 `npm start` 运行'
+                    "项目构建成功, 请 `npm install` 安装依赖, 然后执行 `npm start` 运行"
                 )
             );
         }

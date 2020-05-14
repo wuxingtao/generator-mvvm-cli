@@ -3,7 +3,7 @@
  * @type {{options: (function(*))}}
  */
 module.exports = {
-    options: function (template) {
+    options: function(template) {
         let options = {};
         const common_ignore = [
             this.templatePath(`${template}/**/_*.*`),
@@ -11,25 +11,21 @@ module.exports = {
         ];
         let ignore_add;
         switch (template) {
-            case 'react':
-                ignore_add = [
-                    this.templatePath(`${template}/src/redux/**`)
-                ];
+            case "react":
+                ignore_add = [this.templatePath(`${template}/src/redux/**`)];
                 break;
-            case 'vue':
-                ignore_add = [
-                    this.templatePath(`${template}/src/vuex/**`)
-                ];
+            case "vue":
+                ignore_add = [this.templatePath(`${template}/src/vuex/**`)];
                 break;
             default:
                 ignore_add = [];
                 break;
         }
 
-        return options = {
+        return (options = {
             globOptions: {
                 ignore: common_ignore.concat(ignore_add)
             }
-        };
+        });
     }
 };

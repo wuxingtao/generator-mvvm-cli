@@ -1,41 +1,41 @@
-/* prompts list for generator app*/
-const common_prompts = function () {
+/* Prompts list for generator app */
+const common_prompts = function() {
     return [
         {
-            "type": "input",
-            "name": "appName",
-            "message": "Your project name",
+            type: "input",
+            name: "appName",
+            message: "Your project name",
             default: this.appname
         },
         {
-            "type": "input",
-            "name": "author",
-            "message": "author"
+            type: "input",
+            name: "author",
+            message: "author"
         },
         {
-            "type": "input",
-            "name": "description",
-            "message": "description",
+            type: "input",
+            name: "description",
+            message: "description",
             default: "simple use with react+webpack"
         },
         {
-            "type": "list",
-            "name": "mvvmFrame",
-            "message": "Which frame do you want?",
-            "choices": [
+            type: "list",
+            name: "mvvmFrame",
+            message: "Which frame do you want?",
+            choices: [
                 {
-                    "value": {
-                        "key": "react",
-                        "extension": "react"
+                    value: {
+                        key: "react",
+                        extension: "react"
                     },
-                    "name": "React"
+                    name: "React"
                 },
                 {
-                    "value": {
-                        "key": "vue",
-                        "extension": "vue"
+                    value: {
+                        key: "vue",
+                        extension: "vue"
                     },
-                    "name": "Vue"
+                    name: "Vue"
                 }
             ]
         }
@@ -44,45 +44,48 @@ const common_prompts = function () {
 
 const react_prompts = [
     {
-        "type": "list",
-        "name": "cssPreprocessor",
-        "message": "Which CSS preprocessor do you want?",
-        "choices": [
+        type: "list",
+        name: "cssPreprocessor",
+        message: "Which CSS preprocessor do you want?",
+        choices: [
             {
-                "value": {
-                    "key": "node-sass",
-                    "extension": "scss"
+                value: {
+                    key: "node-sass",
+                    extension: "scss"
                 },
-                "name": "Sass (Node), Node.js binding to libsass, the C version of the popular stylesheet preprocessor, Sass."
+                name:
+                    "Sass (Node), Node.js binding to libsass, the C version of the popular stylesheet preprocessor, Sass."
             },
             {
-                "value": {
-                    "key": "less",
-                    "extension": "less"
+                value: {
+                    key: "less",
+                    extension: "less"
                 },
-                "name": "Less, extends the CSS language, adding features that allow variables, mixins, functions and many other techniques."
+                name:
+                    "Less, extends the CSS language, adding features that allow variables, mixins, functions and many other techniques."
             },
             {
-                "value": {
-                    "key": "stylus",
-                    "extension": "style"
+                value: {
+                    key: "stylus",
+                    extension: "style"
                 },
-                "name": "Stylus, supporting both an indented syntax and regular CSS style."
+                name:
+                    "Stylus, supporting both an indented syntax and regular CSS style."
             },
             {
-                "value": {
-                    "key": "noCssPrepro",
-                    "extension": "css"
+                value: {
+                    key: "noCssPrepro",
+                    extension: "css"
                 },
-                "name": "None, only the good old CSS"
+                name: "None, only the good old CSS"
             }
         ]
     },
     {
-        "type": "checkbox",
-        "name": "pluginSelect",
-        "message": "Which Plugin do you want? use space button add",
-        "choices": ['react-router', 'redux', 'jest']
+        type: "checkbox",
+        name: "pluginSelect",
+        message: "Which Plugin do you want? use space button add",
+        choices: ["react-router", "redux", "jest"]
     },
     {
         type: "confirm",
@@ -94,45 +97,48 @@ const react_prompts = [
 
 const vue_prompts = [
     {
-        "type": "list",
-        "name": "cssPreprocessor",
-        "message": "Which CSS preprocessor do you want?",
-        "choices": [
+        type: "list",
+        name: "cssPreprocessor",
+        message: "Which CSS preprocessor do you want?",
+        choices: [
             {
-                "value": {
-                    "key": "node-sass",
-                    "extension": "scss"
+                value: {
+                    key: "node-sass",
+                    extension: "scss"
                 },
-                "name": "Sass (Node), Node.js binding to libsass, the C version of the popular stylesheet preprocessor, Sass."
+                name:
+                    "Sass (Node), Node.js binding to libsass, the C version of the popular stylesheet preprocessor, Sass."
             },
             {
-                "value": {
-                    "key": "less",
-                    "extension": "less"
+                value: {
+                    key: "less",
+                    extension: "less"
                 },
-                "name": "Less, extends the CSS language, adding features that allow variables, mixins, functions and many other techniques."
+                name:
+                    "Less, extends the CSS language, adding features that allow variables, mixins, functions and many other techniques."
             },
             {
-                "value": {
-                    "key": "stylus",
-                    "extension": "style"
+                value: {
+                    key: "stylus",
+                    extension: "style"
                 },
-                "name": "Stylus, supporting both an indented syntax and regular CSS style."
+                name:
+                    "Stylus, supporting both an indented syntax and regular CSS style."
             },
             {
-                "value": {
-                    "key": "noCssPrepro",
-                    "extension": "css"
+                value: {
+                    key: "noCssPrepro",
+                    extension: "css"
                 },
-                "name": "None, only the good old CSS"
+                name: "None, only the good old CSS"
             }
         ]
     },
     {
-        "type": "checkbox",
-        "name": "pluginSelect",
-        "message": "Which Plugin do you want? use space button add",
-        "choices": ['vuex', 'jest']
+        type: "checkbox",
+        name: "pluginSelect",
+        message: "Which Plugin do you want? use space button add",
+        choices: ["vuex", "jest"]
     },
     {
         type: "confirm",
